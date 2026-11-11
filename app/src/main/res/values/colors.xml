@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="suggestion_panel">#CC202034</color>
+    <color name="suggestion_border">#393850</color>
+    <color name="suggestion_accent">#BFA8FF</color>
+    <color name="suggestion_accent_strong">#8B5CF6</color>
+    <color name="suggestion_text_primary">#F7F4FF</color>
+    <color name="suggestion_text_muted">#AAA4BC</color>
+    <color name="suggestion_divider">#393850</color>
+    <color name="suggestion_pressed">#332F4B</color>
+    <color name="suggestion_ripple">#33BFA8FF</color>
+</resources>

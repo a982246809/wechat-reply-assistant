@@ -1,0 +1,123 @@
+name: 缺陷报告
+description: 报告可复现的构建、配置或回复建议问题
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈。请先确认问题不是由 Provider 服务中断、微信版本变化或 Android 权限设置单独造成的。
+
+        **请勿提交真实聊天、联系人信息、聊天截图、API Key、二维码或其他个人数据。** 安全漏洞请不要使用此模板，而应按照 SECURITY.md 私密报告。
+
+  - type: checkboxes
+    id: privacy_ack
+    attributes:
+      label: 隐私确认
+      description: 该确认是提交缺陷报告的必要条件。
+      options:
+        - label: 我已移除真实聊天、截图、API Key、二维码和其他个人数据，并只使用合成或脱敏信息。
+          required: true
+
+  - type: input
+    id: app_version
+    attributes:
+      label: 应用版本
+      description: 请填写版本名称、versionCode 或提交 SHA。
+      placeholder: 例如 1.0 (versionCode 1) 或 abc1234
+    validations:
+      required: true
+
+  - type: input
+    id: android_version
+    attributes:
+      label: Android 版本与设备
+      description: 只需提供系统版本和公开的设备型号，不要提供序列号或唯一标识。
+      placeholder: 例如 Android 15 / Pixel 8
+    validations:
+      required: true
+
+  - type: dropdown
+    id: install_source
+    attributes:
+      label: 安装来源
+      options:
+        - 从源码自行构建
+        - 从可信 APK 安装
+        - Fork 或修改版本
+        - 其他
+    validations:
+      required: true
+
+  - type: dropdown
+    id: network
+    attributes:
+      label: Provider 连接方式
+      options:
+        - HTTPS
+        - HTTP（已了解明文风险）
+        - 不确定
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: 问题区域
+      options:
+        - Provider 配置或模型列表
+        - 文本回复建议
+        - 视觉回复或图片处理
+        - 悬浮球或界面
+        - 自动/手动触发
+        - 单聊排除
+        - 回复数量设置
+        - 构建、测试或 CI
+        - 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 使用合成聊天或 mock Provider 描述最小复现步骤。
+      placeholder: |
+        1. 打开...
+        2. 配置...
+        3. 触发...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期行为
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际行为
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 脱敏日志或附加信息
+      description: 请删除 Authorization、API Key、Base URL 中的私密部分、聊天原文、图片和二维码。没有日志也可以提交。
+      render: text
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: safe_attachments
+    attributes:
+      label: 附件确认
+      description: 如提交截图，请只使用合成数据并对所有个人信息打码。
+      options:
+        - label: 我理解维护者可以删除包含真实隐私或密钥的内容。
+          required: true

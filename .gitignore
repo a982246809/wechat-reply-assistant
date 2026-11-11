@@ -1,0 +1,65 @@
+# Gradle
+.gradle/
+build/
+**/build/
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+.fleet/
+.vscode/
+
+# Local Android SDK and machine-specific configuration
+local.properties
+sdk.dir
+
+# Android build outputs
+*.apk
+*.aab
+*.aar
+captures/
+lint-results*
+output-metadata.json
+
+# Native build outputs
+.externalNativeBuild/
+.cxx/
+obj/
+
+# Signing and secrets
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.key
+*.pem
+id_rsa
+id_ed25519
+keystore.properties
+signing.properties
+secrets.properties
+.env
+.env.*
+
+# Logs, crash dumps, and temporary files
+*.log
+*.hprof
+*.stackdump
+*.tmp
+*.temp
+
+# Kotlin and Gradle caches
+.kotlin/
+.kotlin-dev/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="56dp"
+    android:layout_height="56dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/ballView"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0dp">
+
+        <FrameLayout
+            android:id="@+id/floatingBallVisual"
+            android:layout_width="32dp"
+            android:layout_height="48dp"
+            android:layout_gravity="end|center_vertical"
+            android:background="@drawable/floating_ball_edge_right"
+            android:elevation="8dp">
+
+            <ImageView
+                android:id="@+id/floatingBallIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:contentDescription="AI 聊天建议"
+                android:src="@drawable/ic_floating_ai_sparkle" />
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
+</FrameLayout>

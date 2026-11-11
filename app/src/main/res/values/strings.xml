@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="first_use_activation_success_overlay">%1$s 已开启，请返回应用</string>
+    <string name="suggestion_gesture_hint">点按发送 · 长按仅填入</string>
+    <string name="suggestion_empty_message">暂时没有可用建议</string>
+    <string name="suggestion_loading_default">正在加载…</string>
+    <string name="suggestion_loading_chat">正在读取聊天记录…</string>
+    <string name="suggestion_loading_chat_scroll">正在滑动读取聊天记录…</string>
+    <string name="suggestion_loading_generating">正在生成回复建议…</string>
+    <string name="suggestion_refresh_description">刷新建议</string>
+    <string name="suggestion_close_description">关闭建议列表</string>
+    <string name="suggestion_action_configure">去配置</string>
+    <string name="suggestion_reply_content_description">%1$s。点按发送，长按仅填入</string>
+    <string name="suggestion_action_content_description">%1$s。点按打开</string>
+</resources>

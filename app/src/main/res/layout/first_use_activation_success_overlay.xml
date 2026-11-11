@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="24dp"
+    android:background="@drawable/bg_first_use_activation_success_overlay"
+    android:clickable="false"
+    android:elevation="8dp"
+    android:focusable="false"
+    android:importantForAccessibility="no"
+    android:maxWidth="320dp"
+    android:paddingHorizontal="18dp"
+    android:paddingVertical="12dp"
+    android:textColor="#FFFFFFFF"
+    android:textSize="15sp"
+    android:textStyle="bold" />

@@ -1,0 +1,112 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.compose.compiler)
+}
+
+android {
+    namespace 'io.github.a982246809.replyassistant'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId "io.github.a982246809.replyassistant"
+        minSdk 24
+        targetSdk 36
+        versionCode project.hasProperty('versionCode') ? project.property('versionCode').toInteger() : 1
+        versionName project.hasProperty('versionName') ? project.property('versionName') : "0.1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            resValue "string", "app_name", "AI 微信回复助手"
+            resValue "string", "app_name_label", "AI 微信回复助手"
+            resValue "string", "accessibility_service_description", "读取微信单聊并提供 AI 回复建议"
+        }
+        debug {
+            applicationIdSuffix ".debug"
+            resValue "string", "app_name", "AI 微信回复助手（开发版）"
+            resValue "string", "app_name_label", "AI 微信回复助手（开发版）"
+            resValue "string", "accessibility_service_description", "读取微信单聊并提供 AI 回复建议"
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    buildFeatures {
+        buildConfig true
+        compose true
+    }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+            all {
+                // MockK/Byte Buddy 在当前 JDK 的隔离测试进程中需要显式允许自附加。
+                jvmArgs '-Djdk.attach.allowAttachSelf=true'
+                javaLauncher = javaToolchains.launcherFor {
+                    languageVersion = JavaLanguageVersion.of(21)
+                }
+            }
+        }
+    }
+
+}
+
+dependencies {
+    // AndroidX Core
+    implementation libs.androidx.core.ktx
+    implementation libs.androidx.appcompat
+    implementation libs.material
+    implementation libs.androidx.activity
+    implementation libs.androidx.constraintlayout
+    implementation libs.androidx.cardview
+
+    // Compose
+    implementation platform(libs.compose.bom)
+    implementation libs.compose.ui
+    implementation libs.compose.ui.graphics
+    implementation libs.compose.ui.tooling.preview
+    implementation libs.compose.material3
+    implementation libs.compose.activity
+    debugImplementation libs.compose.ui.tooling
+    debugImplementation libs.compose.ui.test.manifest
+
+    // Hilt
+    implementation libs.hilt.android
+    ksp libs.hilt.compiler
+    implementation libs.hilt.navigation.compose
+
+    // DataStore
+    implementation libs.datastore.preferences
+
+    // Network
+    implementation libs.okhttp
+    implementation libs.retrofit
+    implementation libs.kotlinx.serialization.json
+    implementation libs.retrofit.kotlinx.serialization
+
+    // Lifecycle
+    implementation libs.lifecycle.runtime.compose
+    implementation libs.lifecycle.viewmodel.compose
+
+    // Testing
+    testImplementation libs.junit
+    testImplementation libs.kotlinx.coroutines.test
+    testImplementation libs.mockk
+    testImplementation libs.robolectric
+    testImplementation libs.okhttp.mockwebserver
+    androidTestImplementation libs.androidx.junit
+    androidTestImplementation libs.androidx.espresso.core
+    androidTestImplementation platform(libs.compose.bom)
+    androidTestImplementation libs.compose.ui.test.junit4
+}
